@@ -1,0 +1,69 @@
+$color_white: white;
+@mixin text($ff, $fw, $fs, $fsize, $c) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-style: $fs;
+  font-size: $fsize;
+  color: $c;
+}
+.header {
+  &__nav {
+    background: rgba($color: rgb(33, 28, 28), $alpha: 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    flex-wrap: wrap;
+    &-logo {
+      img {
+        width: 200px;
+        height: 100px;
+      }
+    }
+    &-title {
+      h1 {
+        @include text(Roboto, bold, normal, 25px, $color_white);
+      }
+    }
+    &__right {
+      display: flex;
+      column-gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      &-social {
+        display: flex;
+        column-gap: 20px;
+        align-items: center;
+        a > i {
+          color: #fff;
+        }
+      }
+      &-search {
+        padding: 5px;
+        border-radius: 10px;
+        background: $color_white;
+        input {
+          background: none;
+          border: none;
+          outline: 0;
+          max-width: 250px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .header__nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    h1 {
+      text-align: center;
+    }
+    &__right {
+      justify-content: center;
+    }
+  }
+}

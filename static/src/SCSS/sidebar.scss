@@ -1,0 +1,44 @@
+$color_white: white;
+
+@mixin text($ff, $fw, $fs, $fsize, $c) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-style: $fs;
+  font-size: $fsize;
+  color: $c;
+}
+
+.sidebar {
+  &__nav {
+    padding: 20px 20px;
+
+    a {
+      text-decoration: none;
+      @include text(Roboto, 400, normal, 15px, $color_white);
+    }
+  }
+  &__cards {
+    padding: 10px;
+    margin-top: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    div {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1080px) {
+  .sidebar__cards {
+    margin-top: 0;
+  }
+  .sidebar__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}

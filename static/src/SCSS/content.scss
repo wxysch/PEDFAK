@@ -1,0 +1,38 @@
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba($color: rgb(0, 229, 255), $alpha: 0.9);
+  .sidebar {
+    width: 20%;
+  }
+  .main {
+    width: 60%;
+  }
+  .sidebar__right {
+    width: 20%;
+  }
+  .tab {
+    width: 80%;
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 1080px) {
+    .content {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .sidebar {
+      width: calc(100%);
+      order: 1;
+    }
+    .main {
+      width: calc(100%);
+      order: 0;
+    }
+    .sidebar__right {
+      width: calc(100%);
+      order: 0;
+    }
+  }
+}
