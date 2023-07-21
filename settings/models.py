@@ -17,9 +17,6 @@ class Contacts(models.Model):
 class Settings(models.Model):
     title = models.CharField(max_length=255)
     logo = models.ImageField(upload_to='logo')
-    contacts = models.TextField()
-    press_service = models.TextField()
-    selection_committee = models.TextField()
     vk = models.URLField(null=True,blank=True)
     twitter = models.URLField(null=True,blank=True)
     instagram = models.URLField(null=True,blank=True)
@@ -33,3 +30,15 @@ class Settings(models.Model):
         verbose_name = 'Настройка'
         verbose_name_plural = 'Настройки'
 
+class News(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='news_image')
+    description = models.TextField()
+    created = models.DateTimeField()
+    
+    def __str__(self):
+        return self.description
+    
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'

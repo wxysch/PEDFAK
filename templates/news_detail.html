@@ -1,0 +1,21 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+    <div class="container">
+        <div class="content">
+            {% include 'include/sidebar.html' %}
+            <main class="tab">
+                <section class="tab__content">
+                    <a href="../../index.html"><i class="fa-solid fa-house"></i> >&nbsp;&nbsp;</a><span>НОВОСТИ</span>
+                    <h3>{{ new.title }}</h3>
+                    <img src="{{ new.image.url }}" alt="">
+                    <p>
+                        {{ new.description}}
+                    </p>
+                </section>
+            </main>
+        </div>
+    </div>
+    {% include 'include/footer.html' %}
+{% endblock %}

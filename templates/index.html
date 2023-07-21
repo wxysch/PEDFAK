@@ -132,61 +132,17 @@
           <section class="news">
             <h3>НОВОСТИ</h3>
             <div class="news__cards">
+              {% for item in news %}
               <div class="news__card">
-                <a href="./pages/news__card/index.html">
-                  <img src="./src/images/news.jpg" alt="" />
+                <a href="{% url 'news_details' setting.id %}">
+                  <img src="{{ item.image.url }}" alt="" />
                   <p>
-                    ОШМУНУН ПЕДАГОГИКА ЖАНА ПСИХОЛОГИЯ ФАКУЛЬТЕТИНИН БББТАТМ
-                    КАФЕДРАСЫНЫН УЛУК ОКУТУУЧУСУ ДЖАНИБАЕВ КАНЫБЕК ОШ БИШКЕК
-                    700КМ ЧАКЫРЫМ АРАЛЫКТЫ ЖӨӨ БАСЫП ӨТҮП РЕКОРД ЖАРАТТЫ.
+                    {{ item.description }}
                   </p>
-                  <span> 2023-06-19 08:10:24</span>
+                  <span> {{ item.created|date:"Y-m-d H:i:s" }}</span>
                 </a>
               </div>
-              <div class="news__card">
-                <a href="./pages/news__card/index.html">
-                  <img src="./src/images/news.jpg" alt="" />
-                  <p>
-                    ОШМУНУН ПЕДАГОГИКА ЖАНА ПСИХОЛОГИЯ ФАКУЛЬТЕТИНИН БББТАТМ
-                    КАФЕДРАСЫНЫН УЛУК ОКУТУУЧУСУ ДЖАНИБАЕВ КАНЫБЕК ОШ БИШКЕК
-                    700КМ ЧАКЫРЫМ АРАЛЫКТЫ ЖӨӨ БАСЫП ӨТҮП РЕКОРД ЖАРАТТЫ.
-                  </p>
-                  <span> 2023-06-19 08:10:24</span>
-                </a>
-              </div>
-              <div class="news__card">
-                <a href="./pages/news__card/index.html">
-                  <img src="./src/images/news.jpg" alt="" />
-                  <p>
-                    ОШМУНУН ПЕДАГОГИКА ЖАНА ПСИХОЛОГИЯ ФАКУЛЬТЕТИНИН БББТАТМ
-                    КАФЕДРАСЫНЫН УЛУК ОКУТУУЧУСУ ДЖАНИБАЕВ КАНЫБЕК ОШ БИШКЕК
-                    700КМ ЧАКЫРЫМ АРАЛЫКТЫ ЖӨӨ БАСЫП ӨТҮП РЕКОРД ЖАРАТТЫ.
-                  </p>
-                  <span> 2023-06-19 08:10:24</span>
-                </a>
-              </div>
-              <div class="news__card">
-                <a href="./pages/news__card/index.html">
-                  <img src="./src/images/news.jpg" alt="" />
-                  <p>
-                    ОШМУНУН ПЕДАГОГИКА ЖАНА ПСИХОЛОГИЯ ФАКУЛЬТЕТИНИН БББТАТМ
-                    КАФЕДРАСЫНЫН УЛУК ОКУТУУЧУСУ ДЖАНИБАЕВ КАНЫБЕК ОШ БИШКЕК
-                    700КМ ЧАКЫРЫМ АРАЛЫКТЫ ЖӨӨ БАСЫП ӨТҮП РЕКОРД ЖАРАТТЫ.
-                  </p>
-                  <span> 2023-06-19 08:10:24</span>
-                </a>
-              </div>
-              <div class="news__card">
-                <a href="./pages/news__card/index.html">
-                  <img src="./src/images/news.jpg" alt="" />
-                  <p>
-                    ОШМУНУН ПЕДАГОГИКА ЖАНА ПСИХОЛОГИЯ ФАКУЛЬТЕТИНИН БББТАТМ
-                    КАФЕДРАСЫНЫН УЛУК ОКУТУУЧУСУ ДЖАНИБАЕВ КАНЫБЕК ОШ БИШКЕК
-                    700КМ ЧАКЫРЫМ АРАЛЫКТЫ ЖӨӨ БАСЫП ӨТҮП РЕКОРД ЖАРАТТЫ.
-                  </p>
-                  <span> 2023-06-19 08:10:24</span>
-                </a>
-              </div>
+              {% endfor %}
             </div>
           </section>
         </main>
