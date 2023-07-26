@@ -17,10 +17,11 @@
             <a href="#"><i class="fa-brands fa-youtube"></i></a>
           </div>
           <div class="header__nav__right-search">
-            <form method="get">
-              <input type="text" placeholder="Поиск" />
+            <form method="get" action="{% url 'search' %}">
+              {% csrf_token %}
+              <input type="text" name="key" placeholder="Поиск" />
               <i class="fa-solid fa-magnifying-glass"></i>
-            </form>
+            </form> 
           </div>
         </div>
       </nav>

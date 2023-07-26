@@ -11,5 +11,6 @@ urlpatterns = [
     path('appeal/',appeal,name='appeal'),
     path('announcement/',announcement,name='announcement'),
     path('albums/',albums,name='albums'),
+    path('search/',news_search,name="search"),
     path('videos/',videos,name='videos'),
 ]

@@ -1,0 +1,27 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+<div class="container">
+    <div class="content">
+        {% include 'include/sidebar.html' %}
+        <main class="tab">
+            <section class="tab__content">
+                {% if all_news %}
+                    <a href="{% url 'index' %}"><i class="fa-solid fa-house"></i> >&nbsp;&nbsp;</a><span>НОВОСТИ</span>
+                    {% for item in all_news %}
+                        <h3>{{ item.title }}</h3>
+                        <img src="{{ item.image.url }}" alt="">
+                        <p>
+                            {{ item.description }}
+                        </p>
+                    {% endfor %}
+                {% else %}
+                    <p>No news available.</p>
+                {% endif %}
+            </section>
+        </main>
+    </div>
+</div>
+{% include 'include/footer.html' %}
+{% endblock %}

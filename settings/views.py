@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import *
+from django.db.models import Q
+
 # Create your views here.
 def index(request):
     setting = Settings.objects.latest('id')
@@ -90,3 +92,20 @@ def videos(request):
         'videos':videos,
     }
     return render(request,'videos.html',context)
+
+def news_search(request):
+    setting = Settings.objects.latest('id')
+    contacts = Contacts.objects.all()
+    all_news = News.objects.all()
+    query_object = request.GET.get('key')
+    if query_object:
+        news = all_news.filter(Q(title__icontains=query_object) | Q(description__icontains=query_object))
+    else:
+        news = all_news
+        
+    context = {
+        'setting': setting,
+        'contacts': contacts,
+        'all_news': news,
+    }
+    return render(request, 'search.html', context)
