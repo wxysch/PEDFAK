@@ -1,0 +1,48 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+    <div class="container">
+      <div class="content">
+        {% include 'include/sidebar.html' %}
+        <main class="tab">
+          <section class="tab__content">
+            <a href="{% url 'index' %}"
+              ><i class="fa-solid fa-house"></i> >&nbsp;&nbsp;</a
+            ><span>ВИДЕОЗАПИСИ</span>
+            <h3>ВИДЕОЗАПИСИ</h3>
+            <div class="tab__cards">
+              {% for item in videos %}
+              <div class="tab__card">
+                <h5>{{ item.title }}</h5>
+                <video
+                  width="400"
+                  height="300"
+                  controls="controls"
+                  poster="{{ item.poster.url }}"
+                >
+                  <source
+                    src="{{ item.video.url }}"
+                    type='video/ogg; codecs="theora, vorbis"'
+                  />
+                  <source
+                    src="{{ item.video.url }}"
+                    type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+                  />
+                  <source
+                  src="{{ item.video.url }}"
+                    type='video/webm; codecs="vp8, vorbis"'
+                  />
+                  Тег video не поддерживается вашим браузером.
+                  <a href="video/duel.mp4">Скачайте видео</a>.
+                </video>
+                <span>{{ item.created }}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    {% include 'include/footer.html' %}
+{% endblock %}

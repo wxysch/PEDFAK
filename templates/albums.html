@@ -1,0 +1,28 @@
+{% extends 'homepage.html' %}
+{% load static %}
+{% block content %}
+{% include 'include/header.html' %}
+    <div class="container">
+      <div class="content">
+        {% include 'include/sidebar.html' %}
+        <main class="tab">
+          <section class="tab__content">
+            <a href="{% url 'index' %}"
+              ><i class="fa-solid fa-house"></i> >&nbsp;&nbsp;</a
+            ><span>ФОТОАЛЬБОМЫ</span>
+            <h3>ФОТОАЛЬБОМЫ</h3>
+            <div class="tab__cards">
+              {% for item in albums %}
+              <div class="tab__card">
+                <h5>{{ item.title }}</h5>
+                <img src="{{ item.album.url }}" alt="" />
+                <span>{{ item.created }}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+    {% include 'include/footer.html' %}
+{% endblock %}

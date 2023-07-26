@@ -42,3 +42,64 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+class Slider(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='slider')
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'Слайдер'
+        verbose_name_plural = 'Слайдеры'
+
+class Announcement(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='announcement_image')
+    description = models.TextField()
+    created = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        verbose_name = 'ОБЪЯВЛЕНИЕ'
+        verbose_name_plural = 'ОБЪЯВЛЕНИЯ'
+
+class Video(models.Model):
+    title = models.CharField(max_length=255)
+    poster = models.ImageField(upload_to='poster/')
+    video = models.FileField(upload_to='video/')
+    created = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'
+
+class Albums(models.Model):
+    title = models.CharField(max_length=255)
+    album = models.ImageField(upload_to='album/')
+    created = models.DateTimeField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Альбом'
+        verbose_name_plural = 'Альбомы'
+
+class Appeal(models.Model):
+    fio = models.CharField(max_length=255)
+    email = models.EmailField(null=True,blank=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.fio
+    
+    class Meta:
+        verbose_name = 'ОБРАЩЕНИЕ'
+        verbose_name_plural = 'ОБРАЩЕНИЯ'
